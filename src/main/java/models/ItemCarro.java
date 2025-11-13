@@ -42,6 +42,9 @@ public class ItemCarro {
 
 
     public double getSubtotal() {
-        return cantidad * producto.getPrecio();
+        double SubtotalBase = cantidad * producto.getPrecio();
+        //IVA del 15%
+        double SubtotalCompuesto= SubtotalBase * 1.15;//agregar el 15% del IVA
+        return Math.round(SubtotalCompuesto*100.0)/100.0;  //redondear a dos decimales
     }
 }

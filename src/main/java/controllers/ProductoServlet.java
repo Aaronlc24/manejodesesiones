@@ -108,7 +108,7 @@ public class ProductoServlet extends HttpServlet {
             out.println("<th>Tipo</th>");
             if (usernameOptional.isPresent()) {
                 out.println("<th>Precio</th>");
-                out.println("<th>Opciones</th>");
+                out.println("<th>Carrito de compras</th>");
             }
             out.println("</tr>");
 
@@ -122,7 +122,7 @@ public class ProductoServlet extends HttpServlet {
                     out.println("<td>$" + p.getPrecio() + "</td>");
                     out.println("<td><a href='" + req.getContextPath()
                             + "/agregar-carro?id=" + p.getId()
-                            + "'>Agregar al carro 🛒</a></td>");
+                            + "'>🛒</a></td>");
                 }
                 out.println("</tr>");
             });

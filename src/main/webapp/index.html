@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cabeceras Http</title>
+    <style>
+        /* Estilo general formal y elegante */
+        body {
+            font-family: "Helvetica Neue", Segoe UI, Roboto, sans-serif;
+            background: linear-gradient(135deg, #dfe9f3, #ffffff);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #2b2b2b;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            color: #1f3b57;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #305680;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: #f8f9fa;
+            border: 1px solid #d1d9e0;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            width: 340px;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        li {
+            border-bottom: 1px solid #e2e6ea;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        a {
+            display: block;
+            padding: 14px 0;
+            text-decoration: none;
+            color: #2f4050;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        a:hover {
+            background: linear-gradient(135deg, #305680, #4b79a1);
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(48, 86, 128, 0.3);
+        }
+
+        /* Animación de entrada */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Efecto sutil al pasar el mouse por el contenedor */
+        ul:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: box-shadow 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+<h3>Manejo de cookies HTTP</h3>
+<ul>
+    <li><a href="/manejosessiones/productos">Mostrar productos HTML</a></li>
+    <li><a href="/manejosessiones/login.html">Login</a></li>
+    <li><a href="/manejosessiones/logout">Logout</a></li>
+</ul>
+</body>
+</html>
