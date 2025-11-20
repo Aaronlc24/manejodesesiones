@@ -20,8 +20,7 @@ public class ProductoRepositoryJdbcImplement implements Repository<Producto> {
     @Override
     public List<Producto> listar() throws SQLException {
         List<Producto> productos = new ArrayList<>();
-        String sql = "SELECT p.*, c.nombreCategoria " +
-                "FROM producto AS p " +
+        String sql = "SELECT p.*, c.nombreCategoria " + "FROM producto AS p " +
                 "INNER JOIN categoria AS c ON p.idCategoria = c.id " +
                 "ORDER BY p.id ASC";
 
