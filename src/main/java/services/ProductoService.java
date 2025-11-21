@@ -13,5 +13,4 @@ public interface ProductoService {
     void eliminar(Long id);
     //implementamos un metodo para listar una categoria y traer una categoria por id
     List<Categoria> listarCategorias();
-    Optional<Categoria> porIdCategoria(Long id);
 }

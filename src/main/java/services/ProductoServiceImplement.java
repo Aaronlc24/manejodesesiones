@@ -5,6 +5,7 @@ import models.Producto;
 import repositorio.CategoriaRepositoryJdbcImplement;
 import repositorio.ProductoRepositoryJdbcImplement;
 import repositorio.Repository;
+import services.Exception;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -13,13 +14,9 @@ import java.util.Optional;
 
 public class ProductoServiceImplement implements ProductoService {
 
-    //Declaramos una variable de tipo ProductoRepositoryJdbcImplemen
-    //private ProductoRepositoryJdbcImplemt repositoryJdbc;
-    //Implementamos un constructor para traer la conexion
-
-    // Usamos el tipo generico de la interfaz repository pero pasamos el tipo de objeto que vamos a implementar
     private Repository<Producto> repositoryJdbc;
     private Repository<Categoria> repositoryCategoriaJdbc;
+
     public ProductoServiceImplement(Connection connection) {
         this.repositoryJdbc = new ProductoRepositoryJdbcImplement(connection);
         this.repositoryCategoriaJdbc = new CategoriaRepositoryJdbcImplement(connection);
@@ -27,60 +24,47 @@ public class ProductoServiceImplement implements ProductoService {
 
     @Override
     public List<Producto> listar() {
-        try{
+        try {
             return repositoryJdbc.listar();
-        }catch(SQLException throwables){
-            throw new Exception(throwables.getMessage(), throwables.getCause());
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage(), e.getCause());
         }
     }
 
     @Override
     public Optional<Producto> porId(Long id) {
-        try{
+        try {
             return Optional.ofNullable(repositoryJdbc.porId(id));
-        }catch (SQLException throwables){
-            throw new Exception(throwables.getMessage(), throwables.getCause());
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage(), e.getCause());
         }
     }
 
     @Override
     public void guardar(Producto producto) {
-        try{
+        try {
             repositoryJdbc.guardar(producto);
-        }catch (SQLException throwables){
-            throw new Exception(throwables.getMessage(), throwables.getCause());
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage(), e.getCause());
         }
     }
 
     @Override
     public void eliminar(Long id) {
-        try{
+        try {
             repositoryJdbc.eliminar(id);
-        }catch (SQLException throwables){
-            throw new Exception(throwables.getMessage(), throwables.getCause());
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage(), e.getCause());
         }
     }
 
+    // ✅ AQUÍ ES DONDE SE CARGA LA LISTA PARA EL <select>
     @Override
     public List<Categoria> listarCategorias() {
-        return List.of();
-    }
-
-    public List<Categoria> listarCategoria() {
-        try{
+        try {
             return repositoryCategoriaJdbc.listar();
-        }catch (SQLException throwables){
-            throw new Exception(throwables.getMessage(), throwables.getCause());
-        }
-    }
-
-    @Override
-    public Optional<Categoria> porIdCategoria(Long id) {
-        try{
-            return Optional.ofNullable(repositoryCategoriaJdbc.porId(id));
-        }catch (SQLException throwables){
-            throw new Exception(throwables.getMessage(), throwables.getCause());
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage(), e.getCause());
         }
     }
 }
-
